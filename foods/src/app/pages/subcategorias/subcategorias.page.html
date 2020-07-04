@@ -1,0 +1,25 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defaulHref="/"></ion-back-button>
+    </ion-buttons>
+    <ion-title class="ion-text-center">Alimentos</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-grid fixed>
+    <ion-row> 
+      <ion-col *ngFor="let subcategoria of subcategorias " size="6">
+        <ion-card mode="ios"  routerLinkActive="router-link-active">
+          <ion-item class="ion-text-center"> 
+            <ion-label>{{ subcategoria.name }}</ion-label>
+          </ion-item>
+          <ion-card-content>
+            <!-- <ion-img src="{{subcategoria.img}}"></ion-img> -->
+          </ion-card-content>
+        </ion-card>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>
