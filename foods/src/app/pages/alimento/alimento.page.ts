@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
+import { AlimentoService } from '../../services/alimento.service';
+import { RespuestaAlimentos} from '../../interface/alimento';
 
 @Component({
   selector: 'app-alimento',
@@ -7,9 +10,18 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AlimentoPage implements OnInit {
 
-  constructor() { }
+  idSubcategoria;
+  alimento: RespuestaAlimentos [] = [];
+  constructor(private route: ActivatedRoute,
+              private alimentoService: AlimentoService ) { }
 
-  ngOnInit() {
+  getAlimentos() {
+    this.alimentoService.getAlimento(this.idSubcategoria)
+    .subscribe( resp => this.alimento = resp);
   }
 
+  ngOnInit() {
+    this.idSubcategoria = this.route.snapshot.params['id'];
+    this.getAlimentos()
+  }
 }
