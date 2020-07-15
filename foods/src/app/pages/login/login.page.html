@@ -1,11 +1,11 @@
 <ion-content>
 
 
-  <ion-slides class="mainSlide">
+  <ion-slides class="mainSlide" >
     
-    <ion-slide>
+    <ion-slide >
 
-      <form>
+      <form (ngSubmit)="login(fLogin)" #fLogin="ngForm" > 
         <ion-grid fixed>
 
           <ion-row>
@@ -23,6 +23,7 @@
                     <ion-label>Email</ion-label>
                     <ion-input name="email"
                                 type="email"
+                                [(ngModel)]="loginUser.usuario" 
                                 required></ion-input>
                   </ion-item>
 
@@ -30,6 +31,7 @@
                     <ion-label>Password</ion-label>
                     <ion-input name="password"
                                 type="password"
+                                [(ngModel)]="loginUser.password"
                                 required></ion-input>
                   </ion-item>
 
@@ -67,16 +69,18 @@
 
             <ion-row>
             <ion-col>
-                <ion-slides>
-                <ion-slide *ngFor="let avatar of [1,1,1,1,1,1,1]">
+                <ion-slides [options]="avatarSlide">
+                <ion-slide *ngFor="let avatar of avatars">
                     <ion-img class="pick-avatar" 
-                            src="/assets/avatars/av-1.png"></ion-img>
+                            src="/assets/avatars/{{avatar.img}}" 
+                            [ngClass]="{'pick-avatar-seleccionado': avatar.seleccionado}" 
+                            (click)="SeleccionarAvatar( avatar )"></ion-img>
                 </ion-slide>
                 </ion-slides>
             </ion-col>
             </ion-row>
         
-            <form>
+            <form #fRegistro="ngForm" (ngSubmit)="registro(fRegistro)" >
                 <ion-row>
                     <ion-col>
                         
@@ -111,37 +115,29 @@
                 <ion-col>
                     <ion-button type="submit"
                                 color="tertiary"
-                                shape="round">
+                                shape="round"
+                                (onclick)="mostrarRegistro()">
                         Crear usuario
                     </ion-button>
                 </ion-col>
             </ion-row>
-            
             </form>
         </ion-grid>
-  
-  
       </ion-slide>
-
-
   </ion-slides>
-
-
-
 </ion-content>
 
 
 <ion-footer no-border>
   <ion-toolbar>
-    
     <ion-row>
-
       <ion-col>
           <ion-button shape="round"
                       expand="full"
                       size="small"
                       fill="outline"
-                      color="tertiary">
+                      color="tertiary"
+                      >
             Ingresar
           </ion-button>
       </ion-col>
@@ -151,14 +147,11 @@
                     expand="full"
                     size="small"
                     fill="outline"
-                    color="tertiary">
+                    color="tertiary"
+                    >
           Registrarme
         </ion-button>
       </ion-col>
-
     </ion-row>
-
-
-
   </ion-toolbar>
 </ion-footer>
