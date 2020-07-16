@@ -76,9 +76,13 @@ export class LoginPage implements OnInit {
   }
 
   async login(fLogin: NgForm){
+
     if (fLogin.invalid){ return; }
 
-    const valido = await this.loginService.login( this.loginUser.usuario, this.loginUser.password )
+    const valido = await this.loginService.login( this.loginUser.usuario, this.loginUser.password );
+
+    console.log(fLogin.value);
+
     if ( valido ) {
       this.navCtrl.navigateRoot( '/categorias' );
     } else {

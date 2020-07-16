@@ -40,7 +40,6 @@ export class LoginService {
       return new Promise( resolve => {
           this.http.post(this.URL1, usuario  )
           .subscribe( resp => {
-            console.log(resp);
             if ( resp['access'] ) {
               this.guardarToken( resp['token'] );
               resolve(true);
