@@ -42,6 +42,10 @@ const routes: Routes = [
   {
     path: 'registo',
     loadChildren: () => import('./pages/registo/registo.module').then( m => m.RegistoPageModule)
+  },
+  {
+    path: 'reality',
+    loadChildren: () => import('./pages/reality/reality.module').then( m => m.RealityPageModule)
   }
 ];
 
