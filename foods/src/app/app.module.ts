@@ -14,7 +14,6 @@ import { CategoriaService } from './services/categoria.service';
 import { HttpClientModule } from '@angular/common/http';
 import { PipesModule } from './pipes/pipes.module';
 import { Camera} from '@ionic-native/camera/ngx';
-import { ComponentsModule } from './components/components.module';
 @NgModule({
   declarations: [AppComponent],
   entryComponents: [],

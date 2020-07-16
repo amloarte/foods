@@ -1,7 +1,10 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
+import { Component, OnInit, ViewChild, Output, EventEmitter } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { IonSlides, NavController } from '@ionic/angular';
 import { LoginService } from '../../services/login.service';
+import { UiServicesService } from '../../services/ui-services.service';
+import { IUsuario } from '../../interface/usuario';
+
 @Component({
   selector: 'app-login',
   templateUrl: './login.page.html',
@@ -10,15 +13,19 @@ import { LoginService } from '../../services/login.service';
 
 export class LoginPage implements OnInit {
 
-  //slidePrincipal: any = {allowTouchMove: false};
-
-  avatarSlide = {
-    slidesPerView: 3.5
-  };
+  @Output() avatarSel = new EventEmitter<string>();
 
   loginUser = {
-    usuario: 'amloarte',
-    password: '123456'
+    usuario: '',
+    password: ''
+  };
+
+  registerUser: IUsuario = {
+    nombres: '',
+    email: '',
+    usuario: '',
+    password: '',
+    avatar: 'av-1.png'
   };
 
   avatars = [
@@ -56,8 +63,13 @@ export class LoginPage implements OnInit {
     },
   ];
 
+  avatarSlide = {
+    slidesPerView: 3.5
+  };
+
   constructor(private loginService: LoginService,
-              private navCtrl: NavController   ) { }
+              private navCtrl: NavController,
+              private uiservice: UiServicesService   ) { }
 
   ngOnInit() {
 
@@ -67,38 +79,26 @@ export class LoginPage implements OnInit {
     if (fLogin.invalid){ return; }
 
     const valido = await this.loginService.login( this.loginUser.usuario, this.loginUser.password )
-    console.log( valido );
-
     if ( valido ) {
-      const a = this.navCtrl.navigateRoot( '/categorias' )
-      console.log(a)
+      this.navCtrl.navigateRoot( '/categorias' );
     } else {
-
+      this.uiservice.alertaInformativa('Usuario y contraseña Incorrectas');
     }
   }
 
-  registro(fRegistro: NgForm){
-    console.log( fRegistro.value );
+  async registro(fRegistro: NgForm){
+    if (fRegistro.invalid){ return; }
+    const valido = await this.loginService.registro( this.registerUser )
+    if ( valido ) {
+      this.navCtrl.navigateRoot( '/categorias' );
+    } else {
+      this.uiservice.alertaInformativa('Ese correo electronico ya existe');
+    }
   }
 
   SeleccionarAvatar( avatar ){
     this.avatars.forEach(av => av.seleccionado = false);
     avatar.seleccionado = true;
+    this.avatarSel.emit( avatar.img );
   }
-
-  // LockSwipes( lock: boolean ){
- 
-  // }
-
-  // mostrarRegistro(){
-  //   this.slidePrincipal =  {allowTouchMove: true};
-  //   this.slidePrincipal.slideTo(0);
-  //   this.slidePrincipal =  {allowTouchMove: false};
-  // }
-
-  // mostrarLogin(){
-  //   this.slidePrincipal =  {allowTouchMove: false};
-  //   this.slidePrincipal.slideTo(0);
-  //   this.slidePrincipal =  {allowTouchMove: true};
-  // }
 }

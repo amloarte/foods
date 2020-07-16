@@ -9,17 +9,13 @@ export class UiServicesService {
 
   constructor(public alertController: AlertController) {}
 
-  async alertaInformativa() {
+  async alertaInformativa( message: string) {
     const alert = await this.alertController.create({
       cssClass: 'my-custom-class',
-      header: 'Alert',
-      subHeader: 'Subtitle',
       message,
       buttons: ['OK']
     });
 
     await alert.present();
   }
-
-  a
 }

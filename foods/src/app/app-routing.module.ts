@@ -31,10 +31,6 @@ const routes: Routes = [
     path: 'alimento/:id',
     loadChildren: () => import('./pages/alimento/alimento.module').then( m => m.AlimentoPageModule)
   },
-  {
-    path: 'registo',
-    loadChildren: () => import('./pages/registo/registo.module').then( m => m.RegistoPageModule)
-  }
 ];
 
 @NgModule({

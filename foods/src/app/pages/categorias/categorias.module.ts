@@ -16,8 +16,7 @@ import { ComponentsModule } from '../../components/components.module';
     FormsModule,
     IonicModule,
     CategoriasPageRoutingModule,
-    PipesModule,
-    
+    PipesModule
   ],
   declarations: [CategoriasPage]
 })
