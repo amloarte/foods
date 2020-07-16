@@ -4,7 +4,7 @@ import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
 const routes: Routes = [
   {
     path: '',
-    redirectTo: 'categorias',
+    redirectTo: 'login',
     pathMatch: 'full'
   },
   {
@@ -13,14 +13,6 @@ const routes: Routes = [
   },
   {
     path: 'subcategoria',
-    loadChildren: () => import('./pages/subcategorias/subcategorias.module').then( m => m.SubcategoriasPageModule)
-  },
-  {
-    path: 'subcategorias',
-    loadChildren: () => import('./pages/subcategorias/subcategorias.module').then( m => m.SubcategoriasPageModule)
-  },
-  {
-    path: 'subcategorias',
     loadChildren: () => import('./pages/subcategorias/subcategorias.module').then( m => m.SubcategoriasPageModule)
   },
   {
@@ -38,10 +30,6 @@ const routes: Routes = [
   {
     path: 'alimento/:id',
     loadChildren: () => import('./pages/alimento/alimento.module').then( m => m.AlimentoPageModule)
-  },
-  {
-    path: 'registo',
-    loadChildren: () => import('./pages/registo/registo.module').then( m => m.RegistoPageModule)
   },
   {
     path: 'reality',
