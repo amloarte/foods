@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { AlimentoPage } from '../alimento/alimento.page';
+import { RespuestaAlimentos } from 'src/app/interface/alimento';
 
 @Component({
   selector: 'app-reality',
@@ -6,8 +8,11 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./reality.page.scss'],
 })
 export class RealityPage implements OnInit {
-
-  constructor() { }
+  alimento: RespuestaAlimentos;
+  // constructor(private aliment) {
+  //   this.alimento = aliment;
+  //  }
+  constructor(){}
 
   ngOnInit() {
   }
