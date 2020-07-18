@@ -34,7 +34,17 @@ const routes: Routes = [
   {
     path: 'reality',
     loadChildren: () => import('./pages/reality/reality.module').then( m => m.RealityPageModule)
-  }
+  },
+  {
+    path: 'info',
+    loadChildren: () => import('./pages/info/info.module').then( m => m.InfoPageModule)
+  },
+  {
+    path: 'info/:id',
+    loadChildren: () => import('./pages/info/info.module').then( m => m.InfoPageModule)
+  },
+
+
 ];
 
 @NgModule({

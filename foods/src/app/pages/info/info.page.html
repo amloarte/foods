@@ -1,0 +1,85 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/"></ion-back-button>
+    </ion-buttons>
+    <ion-title >Detalle Alimento</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-list *ngFor="let foods of alimento ">
+    <ion-item>
+      <ion-label>
+        <h3>Autor</h3>
+        <p>{{ foods.autor}}</p>
+      </ion-label>
+    </ion-item>
+    <ion-item>
+      <ion-label >
+            <h3>Fecha</h3>
+            <p>{{ foods.fecha}}</p>
+      </ion-label>
+    </ion-item>
+    <ion-item>
+      <ion-label >
+            <h3>Categoria</h3>
+            <p>{{ foods.categoria}}</p>
+      </ion-label>
+    </ion-item>
+    <ion-item>
+      <ion-label >
+            <h3>Nombre Comun</h3>
+            <p>{{ foods.nombre_comun}}</p>
+      </ion-label>
+    </ion-item>
+    <ion-item>
+      <ion-label >
+          <h3>Nombre Cientifico</h3>
+            <p>{{ foods.nombre_cientifico}}</p>
+      </ion-label>
+    </ion-item>
+    <ion-item>
+      <ion-label >
+        <h3>Descripciòn </h3>
+            <p>{{ foods.description}}</p>
+      </ion-label>
+    </ion-item>
+    <ion-item>
+      <ion-label >
+        <h3>Temporada</h3>
+            <p>{{ foods.temporada}}</p>
+      </ion-label>
+    </ion-item>
+    <ion-item>
+      <ion-label >
+        <h3>Presentación</h3>
+            <p>{{ foods.presentacion}}</p>
+      </ion-label>
+    </ion-item>
+    <ion-item>
+      <ion-label >
+        <h3>Unidades</h3>
+            <p>{{ foods.unidades}}</p>
+      </ion-label>
+    </ion-item>
+    <ion-item>
+      <ion-label >
+        <h3>Kilocalorias</h3>
+            <p>{{ foods.kilocalorias}}</p>
+      </ion-label>
+    </ion-item>
+    <ion-item>
+      <ion-label >
+        <h3>Glúcidos</h3>
+            <p>{{ foods.glucidos}}</p>
+      </ion-label>
+    </ion-item>
+    <ion-item>
+      <ion-label >
+        <h3>Proteindas</h3>
+            <p>{{ foods.proteinas  }}</p>
+      </ion-label>
+    </ion-item>
+  </ion-list>
+</ion-content>

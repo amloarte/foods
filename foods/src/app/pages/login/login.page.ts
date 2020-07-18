@@ -92,7 +92,7 @@ export class LoginPage implements OnInit {
 
   async registro(fRegistro: NgForm){
     if (fRegistro.invalid){ return; }
-    const valido = await this.loginService.registro( this.registerUser )
+    const valido = await this.loginService.registro( this.registerUser );
     if ( valido ) {
       this.navCtrl.navigateRoot( '/categorias' );
     } else {
