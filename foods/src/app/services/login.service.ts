@@ -12,7 +12,7 @@ export class LoginService {
   token: string = null;
 
   constructor( private http: HttpClient,
-               private storange: Storage) { }
+               private storange: Storage ) { }
 
   login(usuario: string, password: string){
     const data = { usuario, password };

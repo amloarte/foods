@@ -14,9 +14,8 @@ import { CategoriaService } from './services/categoria.service';
 import { HttpClientModule } from '@angular/common/http';
 import { PipesModule } from './pipes/pipes.module';
 import { Camera} from '@ionic-native/camera/ngx';
-import { InfoPipe } from './pages/info.pipe';
 @NgModule({
-  declarations: [AppComponent, InfoPipe],
+  declarations: [AppComponent],
   entryComponents: [],
   imports: [
     BrowserModule,
