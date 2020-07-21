@@ -1,9 +1,10 @@
 import { Component, OnInit, ViewChild, Output, EventEmitter } from '@angular/core';
 import { NgForm } from '@angular/forms';
-import { IonSlides, NavController } from '@ionic/angular';
+import { NavController } from '@ionic/angular';
 import { LoginService } from '../../services/login.service';
 import { UiServicesService } from '../../services/ui-services.service';
 import { IUsuario } from '../../interface/usuario';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-login',
@@ -69,20 +70,16 @@ export class LoginPage implements OnInit {
 
   constructor(private loginService: LoginService,
               private navCtrl: NavController,
-              private uiservice: UiServicesService   ) { }
+              private uiservice: UiServicesService,
+              private router: Router   ) { }
 
   ngOnInit() {
 
   }
 
   async login(fLogin: NgForm){
-
     if (fLogin.invalid){ return; }
-
     const valido = await this.loginService.login( this.loginUser.usuario, this.loginUser.password );
-
-    console.log(fLogin.value);
-
     if ( valido ) {
       this.navCtrl.navigateRoot( '/categorias' );
     } else {
@@ -104,5 +101,13 @@ export class LoginPage implements OnInit {
     this.avatars.forEach(av => av.seleccionado = false);
     avatar.seleccionado = true;
     this.avatarSel.emit( avatar.img );
+  }
+
+  loginGoogle( fLogin: NgForm  ){
+    this.loginService.loginGoogle( this.loginUser.usuario, this.loginUser.password ).then( () => {
+        this.router.navigate(['/categorias']);
+    }).catch( err => {
+        this.uiservice.alertaInformativa('Error al iniciar con Google' + err );
+    });
   }
 }

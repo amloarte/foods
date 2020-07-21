@@ -1,28 +1,54 @@
-<ion-header class="ion-no-border">
+<ion-header translucent class="ion-no-border">
   <ion-toolbar  color="primary">
-    <ion-title class="ion-text-center">Categorias de Alimentos</ion-title>
+    <ion-title size="large" color="warning">Alimentos</ion-title>
+    <!-- <ion-img src="../../../assets/logo.png" class="img"></ion-img> -->
+    <ion-buttons slot="end" >
+      <ion-button>
+        <ion-icon name="person-circle-outline" color="warning"></ion-icon>
+      </ion-button>
+    </ion-buttons>
   </ion-toolbar>
-  <ion-toolbar  color="primary" >
-    <ion-searchbar aria-placeholder="Buscar categorias..."
+  <ion-toolbar color="warning" class="ion-margin-top">
+    <ion-searchbar placeholder="Buscar categorías de alimentos..."
                    animated
-                   (ionChange)="buscarCategoria( $event )">
+                   mode="ios"
+                   (ionChange)="buscarCategoria( $event )" 
+                   color="light">
     </ion-searchbar>
   </ion-toolbar>
 </ion-header>
 
-<ion-content [fullscreen]="true">
-  <ion-grid fixed>
+<ion-content [fullscreen]="true" color="warning">
+  <ion-grid fixed >
     <ion-row> 
       <ion-col *ngFor="let categoria of categorias | buscador : textoBuscar" size="6">
-        <ion-card mode="ios" [routerLink]="['/subcategoria', categoria._id]" routerLinkActive="router-link-active">
-          <ion-item class="ion-text-center"> 
-            <ion-label>{{ categoria.name }}</ion-label>
-          </ion-item>
-          <ion-card-content>
+        <ion-card  mode="ios" [routerLink]="['/subcategoria', categoria._id]" routerLinkActive="router-link-active">
+          <ion-card-content >
             <ion-img src="{{categoria.imagen}}"></ion-img>
           </ion-card-content>
+          <ion-item class="ion-text-center" color="medium"> 
+            <ion-label mode="ios">{{ categoria.name }}</ion-label>
+          </ion-item>
         </ion-card>
       </ion-col>
     </ion-row>
   </ion-grid>
 </ion-content>
+<ion-tabs>
+  <ion-tab-bar slot="bottom" color="primary">
+      <ion-tab-button tab="/">
+          <ion-icon name="home" color="warning"></ion-icon>
+          <ion-label color="warning"> Inicio </ion-label>
+      </ion-tab-button>
+
+      <ion-tab-button tab="contact">
+        <ion-icon name="qr-code-outline" size="50" color="warning"></ion-icon>
+          <ion-label color="warning"> QR </ion-label>
+      </ion-tab-button>
+
+      <ion-tab-button tab="settings">
+          <ion-icon name="person-outline" color="warning"></ion-icon>
+          <ion-label color="warning"> Perfil </ion-label>
+      </ion-tab-button>
+  </ion-tab-bar>
+</ion-tabs>

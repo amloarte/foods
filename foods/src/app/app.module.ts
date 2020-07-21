@@ -14,6 +14,12 @@ import { CategoriaService } from './services/categoria.service';
 import { HttpClientModule } from '@angular/common/http';
 import { PipesModule } from './pipes/pipes.module';
 import { Camera} from '@ionic-native/camera/ngx';
+
+import { AngularFireAuthModule  } from '@angular/fire/auth';
+import { AngularFireModule  } from '@angular/fire';
+import { GooglePlus } from '@ionic-native/google-plus/ngx';
+import { firebaseConfig } from 'src/environments/environment';
+
 @NgModule({
   declarations: [AppComponent],
   entryComponents: [],
@@ -22,7 +28,9 @@ import { Camera} from '@ionic-native/camera/ngx';
     IonicModule.forRoot(),
     AppRoutingModule,
     HttpClientModule,
-    IonicStorageModule.forRoot()
+    IonicStorageModule.forRoot(),
+    AngularFireAuthModule,
+    AngularFireModule.initializeApp( firebaseConfig ),
   ],
   providers: [
     StatusBar,
@@ -30,6 +38,7 @@ import { Camera} from '@ionic-native/camera/ngx';
     CategoriaService,
     PipesModule,
     Camera,
+    GooglePlus,
     { provide: RouteReuseStrategy, useClass: IonicRouteStrategy }
   ],
   bootstrap: [AppComponent]
