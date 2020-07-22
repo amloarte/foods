@@ -14,8 +14,13 @@ import { HttpClientModule } from '@angular/common/http';
 import { PipesModule } from './pipes/pipes.module';
 import { Camera} from '@ionic-native/camera/ngx';
 import { ComponentsModule } from './components/components.module';
+
+import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
+
+
 @NgModule({
   declarations: [AppComponent],
+  schemas: [CUSTOM_ELEMENTS_SCHEMA],
   entryComponents: [],
   imports: [
     BrowserModule, 

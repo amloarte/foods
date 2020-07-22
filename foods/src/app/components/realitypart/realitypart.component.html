@@ -1,0 +1,50 @@
+
+
+
+    <!-- <a-scene embedded arjs>
+        <a-box click-drag position="0 1.25 -1" color="#4CC3D9"></a-box>
+        <a-entity camera></a-entity>
+    </a-scene> -->
+    
+    <a-scene vr-mode-ui="enabled: false;"
+        arjs=' sourceWidth:1280; sourceHeight:960; displayWidth: 1280; displayHeight: 960;'>
+
+        <a-assets>
+          <a-asset-item id="hall-obj" src="../../../assets/apple.glb"></a-asset-item>
+      </a-assets>
+
+        <a-entity position="1 0 -1" >
+            <!-- <a-entity position="-1.3 0 -1"
+                animation="property: object3D.position.x; to: -1.27; easing: linear; dir: alternate; loop: true; dur: 1000"
+                gltf-model="##hall-obj" scale="1.8 1.8 1.8" id="directionaltarget">
+            </a-entity> -->
+             <a-entity  position="-1.3 0 -1" scale="4 4 4" >
+            <a-gltf-model src="../../../assets/apple.glb" animation="property: object3D.position.x; to: -1.27; easing: linear; dir: alternate; loop: true; dur: 1000" ></a-gltf-model>
+        </a-entity>
+            <a-entity text="font: mozillavr; value: {{saludo}}" scale="1 1 1" position="-0.5 0 -1"></a-entity>
+            <!-- <a-text value="{kssksks"  negate="false" scale="1 1 1" position="-1.1 0 -1"></a-text> -->
+        </a-entity>
+       
+        <a-light type="directional" position="0 2 0" target="#directionaltarget">
+
+
+        </a-light>
+
+
+        <!-- <a-entity  position="0 1.25 -1" scale="4 4 4">
+            <a-gltf-model src="apple.glb" ></a-gltf-model>
+        </a-entity> -->
+
+        <!-- <a-entity position="0 0 1">
+            <a-camera drag-rotate-component keyboard-controls="mode: fps"></a-camera>
+        
+        </a-entity> -->
+        <a-entity camera >
+        </a-entity> 
+        
+    </a-scene>
+ 
+
+
+
+
