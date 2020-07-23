@@ -3,12 +3,12 @@
   <ion-buttons slot="start">
     <ion-back-button defaultHref="/"></ion-back-button>
   </ion-buttons>
-  <ion-title class="ion-text-center" color="warning" >
+  <ion-title class="ion-text-center" color="warning">
     <h3><b>{{ foods.nombre_comun}}</b></h3>
   </ion-title>
 </ion-toolbar>
 <ion-content>
-<!-- 
+  <!-- 
   <ion-col *ngFor="let foods of alimento " size="6">
     <ion-card mode="ios"   [routerLink]="['/reality']" routerLinkActive="router-link-active">
       <ion-item class="ion-text-center"> 
@@ -20,7 +20,7 @@
     </ion-card>
     <ion-button color="primary" [routerLink]="['/info', foods._id]" >Información</ion-button>
   </ion-col> -->
-  <ion-content fullscreen>
+  <!-- <ion-content fullscreen>
     <ion-card *ngFor="let foods of alimento " class="ion-align-items-center" >
       <ion-card-header>
         <ion-img src="{{foods.imagen}}" [routerLink]="['/reality']"></ion-img>  
@@ -52,10 +52,42 @@
       </ion-card-content>
       
     </ion-card>
-  </ion-content>
+  </ion-content> -->
 </ion-content>
 <ion-footer>
   <ion-toolbar>
     <app-tabs></app-tabs>
   </ion-toolbar>
 </ion-footer>
+<ion-content fullscreen>
+  <ion-card *ngFor="let foods of alimentoService.alimentos ">
+    <ion-img src="{{foods.imagen}}" [routerLink]="['/reality', foods._id]"></ion-img>
+    <ion-card-header>
+      <ion-card-title>Nombre: {{ foods.nombre_comun }}</ion-card-title>
+      <ion-card-subtitle>Descripción: {{ foods.description }}</ion-card-subtitle>
+    </ion-card-header>
+    <ion-card-content>
+      <ion-list>
+        <ion-item>
+          <ion-label>
+            <h3>Autor</h3>
+            <p>{{ foods.autor}}</p>
+          </ion-label>
+        </ion-item>
+        <ion-item>
+          <ion-label>
+            <h3>Fecha</h3>
+            <p>{{ foods.fecha}}</p>
+          </ion-label>
+        </ion-item>
+        <ion-item>
+          <ion-label>
+            <h3>Categoria</h3>
+            <p>{{ foods.categoria}}</p>
+          </ion-label>
+        </ion-item>
+      </ion-list>
+      <ion-button color="primary" [routerLink]="['/info', foods._id]">Información</ion-button>
+    </ion-card-content>
+  </ion-card>
+</ion-content>

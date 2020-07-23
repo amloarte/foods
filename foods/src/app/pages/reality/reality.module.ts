@@ -1,3 +1,4 @@
+import { PruebaPage } from './../prueba/prueba.page';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
@@ -15,6 +16,6 @@ import { RealityPage } from './reality.page';
     IonicModule,
     RealityPageRoutingModule
   ],
-  declarations: [RealityPage]
+  declarations: [RealityPage, PruebaPage]
 })
 export class RealityPageModule {}

@@ -32,7 +32,7 @@ const routes: Routes = [
     loadChildren: () => import('./pages/alimento/alimento.module').then( m => m.AlimentoPageModule)
   },
   {
-    path: 'reality',
+    path: 'reality/:id',
     loadChildren: () => import('./pages/reality/reality.module').then( m => m.RealityPageModule)
   },
   {

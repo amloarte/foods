@@ -1,4 +1,6 @@
-import { NgModule } from '@angular/core';
+import { TabsComponent } from './components/tabs/tabs.component';
+import { LoginPage } from './pages/login/login.page';
+import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { RouteReuseStrategy } from '@angular/router';
 
@@ -43,4 +45,4 @@ import { firebaseConfig } from 'src/environments/environment';
   ],
   bootstrap: [AppComponent]
 })
-export class AppModule {}
+export class AppModule { }
