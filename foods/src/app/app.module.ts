@@ -1,4 +1,6 @@
-import { NgModule } from '@angular/core';
+import { TabsComponent } from './components/tabs/tabs.component';
+import { LoginPage } from './pages/login/login.page';
+import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { RouteReuseStrategy } from '@angular/router';
 
@@ -13,7 +15,8 @@ import { AppRoutingModule } from './app-routing.module';
 import { CategoriaService } from './services/categoria.service';
 import { HttpClientModule } from '@angular/common/http';
 import { PipesModule } from './pipes/pipes.module';
-import { Camera} from '@ionic-native/camera/ngx';
+import { Camera } from '@ionic-native/camera/ngx';
+
 @NgModule({
   declarations: [AppComponent],
   entryComponents: [],
@@ -34,4 +37,4 @@ import { Camera} from '@ionic-native/camera/ngx';
   ],
   bootstrap: [AppComponent]
 })
-export class AppModule {}
+export class AppModule { }

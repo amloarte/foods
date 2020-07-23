@@ -32,7 +32,7 @@ const routes: Routes = [
     loadChildren: () => import('./pages/alimento/alimento.module').then( m => m.AlimentoPageModule)
   },
   {
-    path: 'reality',
+    path: 'reality/:id',
     loadChildren: () => import('./pages/reality/reality.module').then( m => m.RealityPageModule)
   },
   {
@@ -42,6 +42,10 @@ const routes: Routes = [
   {
     path: 'info/:id',
     loadChildren: () => import('./pages/info/info.module').then( m => m.InfoPageModule)
+  },
+  {
+    path: 'prueba',
+    loadChildren: () => import('./pages/prueba/prueba.module').then( m => m.PruebaPageModule)
   },
 
 
