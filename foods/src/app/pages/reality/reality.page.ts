@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { AlimentoPage } from '../alimento/alimento.page';
 import { RespuestaAlimentos } from 'src/app/interface/alimento';
+import { GoogleServiceobjectsService } from 'src/app/services/google-serviceobjects.service';
 
 
 @Component({
@@ -14,12 +15,12 @@ export class RealityPage implements OnInit {
   // constructor(private aliment) {
   //   this.alimento = aliment;
   //  }
-  constructor() {
+  constructor(private googleS:GoogleServiceobjectsService) {
 
   }
-
+  file;
   ngOnInit() {
-
+    this.changeColor("1bxOcmXisMlo2n7phTkJ4tzO7UBadOf8f");
   }
 
  
@@ -29,19 +30,16 @@ export class RealityPage implements OnInit {
     setTimeout(function () {
         // Crea la capa del mapa
         that.checkIframeLoaded();
-    }, 2000);   
+    }, 10000);   
 
   }
 
-  changeColor() {
-    if (!document.querySelector('a-text')) {
-
-      console.log('no apraece')
-    } else {
-      console.log('vale vrg')
-      var text = document.getElementById('test');
-      text.setAttribute('value', '20:31');
-    }
+  changeColor(fileid) {
+    this.googleS.get_objectfromDriven(fileid).subscribe( res =>{
+      console.log(res)
+      
+      this.file = URL.createObjectURL(res);
+    });
 
   }
 
@@ -70,11 +68,11 @@ export class RealityPage implements OnInit {
         console.log("pppppppppppppppppp");
         console.log(text.getAttribute('value'));
         text.setAttribute('value', '20:31');
-
+        var per = iframeDoc.getElementById('perro');
+        per.setAttribute('gltf-model', this.file);
       }
 
-      // If we are here, it is not loaded. Set things up so we check   the status again in 100 milliseconds
-      window.setTimeout(this.checkIframeLoaded, 100);
+      // If we are here, it is not loaded. Set things up so we check   the status again in 100 millisecond
       
     
   }
