@@ -7,77 +7,77 @@
 </ion-toolbar>
 
 <ion-content>
-  <ion-list *ngFor="let foods of alimento ">
+  <ion-list *ngFor="let alimento of alimentoService.alimentos ">
     <ion-item>
       <ion-label>
         <h3>Autor</h3>
-        <p>{{ foods.autor}}</p>
+        <p>{{ alimento.autor}}</p>
       </ion-label>
     </ion-item>
     <ion-item>
       <ion-label >
             <h3>Fecha</h3>
-            <p>{{ foods.fecha}}</p>
+            <p>{{ alimento.fecha}}</p>
       </ion-label>
     </ion-item>
     <ion-item>
       <ion-label >
             <h3>Categoria</h3>
-            <p>{{ foods.categoria}}</p>
+            <p>{{ alimento.categoria}}</p>
       </ion-label>
     </ion-item>
     <ion-item>
       <ion-label >
             <h3>Nombre Comun</h3>
-            <p>{{ foods.nombre_comun}}</p>
+            <p>{{ alimento.nombre_comun}}</p>
       </ion-label>
     </ion-item>
     <ion-item>
       <ion-label >
           <h3>Nombre Cientifico</h3>
-            <p>{{ foods.nombre_cientifico}}</p>
+            <p>{{ alimento.nombre_cientifico}}</p>
       </ion-label>
     </ion-item>
     <ion-item>
       <ion-label >
         <h3>Descripciòn </h3>
-            <p>{{ foods.description}}</p>
+            <p>{{ alimento.description}}</p>
       </ion-label>
     </ion-item>
     <ion-item>
       <ion-label >
         <h3>Temporada</h3>
-            <p>{{ foods.temporada}}</p>
+            <p>{{ alimento.temporada}}</p>
       </ion-label>
     </ion-item>
     <ion-item>
       <ion-label >
         <h3>Presentación</h3>
-            <p>{{ foods.presentacion}}</p>
+            <p>{{ alimento.presentacion}}</p>
       </ion-label>
     </ion-item>
     <ion-item>
       <ion-label >
         <h3>Unidades</h3>
-            <p>{{ foods.unidades}}</p>
+            <p>{{ alimento.unidades}}</p>
       </ion-label>
     </ion-item>
     <ion-item>
       <ion-label >
         <h3>Kilocalorias</h3>
-            <p>{{ foods.kilocalorias}}</p>
+            <p>{{ alimento.kilocalorias}}</p>
       </ion-label>
     </ion-item>
     <ion-item>
       <ion-label >
         <h3>Glúcidos</h3>
-            <p>{{ foods.glucidos}}</p>
+            <p>{{ alimento.glucidos}}</p>
       </ion-label>
     </ion-item>
     <ion-item>
       <ion-label >
         <h3>Proteindas</h3>
-            <p>{{ foods.proteinas  }}</p>
+            <p>{{ alimento.proteinas  }}</p>
       </ion-label>
     </ion-item>
   </ion-list>

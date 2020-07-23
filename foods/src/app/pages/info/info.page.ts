@@ -12,17 +12,22 @@ import { AlimentoService } from '../../services/alimento.service';
 export class InfoPage implements OnInit {
 
   idSubcategoria;
-  alimento: RespuestaAlimentos [] = [];
-  constructor(private route: ActivatedRoute,
-              private alimentoService: AlimentoService ) { }
+  alimentos: RespuestaAlimentos [] = [];
 
   ngOnInit() {
     this.idSubcategoria = this.route.snapshot.params['id'];
     this.getAlimentos();
   }
 
+  constructor(private route: ActivatedRoute,
+              private alimentoService: AlimentoService ) { }
+
+
   getAlimentos() {
-    this.alimentoService.getAlimento(this.idSubcategoria)
-    .subscribe( resp => this.alimento = resp);
+    this.alimentoService.getOneAlimento(this.idSubcategoria)
+      .subscribe(res => {
+        console.log(res);
+      });
   }
+
 }

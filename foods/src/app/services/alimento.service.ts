@@ -22,6 +22,6 @@ export class AlimentoService {
   }
 
   getOneAlimento(idAlimento) {
-    return this.http.get(this.URL + idAlimento);
+    return this.http.get(this.URL_Buscar + idAlimento);
   }
 }
