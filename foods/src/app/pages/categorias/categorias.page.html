@@ -1,32 +1,32 @@
-<ion-header translucent class="ion-no-border">
-  <ion-toolbar  color="primary">
-    <ion-title size="large" color="warning">Alimentos</ion-title>
-    <!-- <ion-img src="../../../assets/logo.png" class="img"></ion-img> -->
-    <ion-buttons slot="end" >
-      <ion-button>
-        <ion-icon name="person-circle-outline" color="warning"></ion-icon>
-      </ion-button>
-    </ion-buttons>
-  </ion-toolbar>
-  <ion-toolbar color="warning" class="ion-margin-top">
-    <ion-searchbar placeholder="Buscar categorías de alimentos..."
-                   animated
-                   mode="ios"
-                   (ionChange)="buscarCategoria( $event )" 
-                   color="light">
-    </ion-searchbar>
-  </ion-toolbar>
-</ion-header>
+<app-header></app-header>
+<ion-toolbar  color="primary">
+  <ion-title color="warning">
+    <h5>GRUPOS ALIMENTICIOS</h5>
+  </ion-title>
+  <ion-buttons slot="end" >
+    <ion-button>
+      <ion-icon name="person-circle-outline" color="warning"></ion-icon>
+    </ion-button>
+  </ion-buttons>
+</ion-toolbar>
+<ion-toolbar color="" class="ion-margin-top">
+  <ion-searchbar placeholder="Buscar..."
+                 animated
+                 mode="ios"
+                 (ionChange)="buscarCategoria( $event )" 
+                 color="medium">
+  </ion-searchbar>
+</ion-toolbar>
 
-<ion-content [fullscreen]="true" color="warning">
-  <ion-grid fixed >
+<ion-content id="content">
+  <ion-grid >
     <ion-row> 
       <ion-col *ngFor="let categoria of categorias | buscador : textoBuscar" size="6">
-        <ion-card  mode="ios" [routerLink]="['/subcategoria', categoria._id]" routerLinkActive="router-link-active">
+        <ion-card  mode="ios" [routerLink]="['/subcategoria', categoria._id]">
           <ion-card-content >
             <ion-img src="{{categoria.imagen}}"></ion-img>
           </ion-card-content>
-          <ion-item class="ion-text-center" color="medium"> 
+          <ion-item class="ion-text-center" color="primary"> 
             <ion-label mode="ios">{{ categoria.name }}</ion-label>
           </ion-item>
         </ion-card>
@@ -34,21 +34,8 @@
     </ion-row>
   </ion-grid>
 </ion-content>
-<ion-tabs>
-  <ion-tab-bar slot="bottom" color="primary">
-      <ion-tab-button tab="/">
-          <ion-icon name="home" color="warning"></ion-icon>
-          <ion-label color="warning"> Inicio </ion-label>
-      </ion-tab-button>
-
-      <ion-tab-button tab="contact">
-        <ion-icon name="qr-code-outline" size="50" color="warning"></ion-icon>
-          <ion-label color="warning"> QR </ion-label>
-      </ion-tab-button>
-
-      <ion-tab-button tab="settings">
-          <ion-icon name="person-outline" color="warning"></ion-icon>
-          <ion-label color="warning"> Perfil </ion-label>
-      </ion-tab-button>
-  </ion-tab-bar>
-</ion-tabs>
+<ion-footer>
+  <ion-toolbar>
+    <app-tabs></app-tabs>
+  </ion-toolbar>
+</ion-footer>

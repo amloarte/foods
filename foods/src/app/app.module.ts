@@ -30,7 +30,7 @@ import { firebaseConfig } from 'src/environments/environment';
     HttpClientModule,
     IonicStorageModule.forRoot(),
     AngularFireAuthModule,
-    AngularFireModule.initializeApp( firebaseConfig ),
+    AngularFireModule.initializeApp( firebaseConfig )
   ],
   providers: [
     StatusBar,

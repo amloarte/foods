@@ -10,18 +10,18 @@ import { RespuestaAlimentos} from '../../interface/alimento';
 })
 export class AlimentoPage implements OnInit {
 
-  idSubcategoria;
+  idAlimento;
   alimento: RespuestaAlimentos [] = [];
   constructor(private route: ActivatedRoute,
               private alimentoService: AlimentoService ) { }
 
   getAlimentos() {
-    this.alimentoService.getAlimento(this.idSubcategoria)
+    this.alimentoService.getAlimento(this.idAlimento)
     .subscribe( resp => this.alimento = resp);
   }
 
   ngOnInit() {
-    this.idSubcategoria = this.route.snapshot.params['id'];
-    this.getAlimentos()
+    this.idAlimento = this.route.snapshot.params['id'];
+    this.getAlimentos();
   }
 }

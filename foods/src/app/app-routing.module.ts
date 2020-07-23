@@ -43,8 +43,10 @@ const routes: Routes = [
     path: 'info/:id',
     loadChildren: () => import('./pages/info/info.module').then( m => m.InfoPageModule)
   },
-
-
+  {
+    path: 'inicio',
+    loadChildren: () => import('./pages/inicio/inicio.module').then( m => m.InicioPageModule)
+  },
 ];
 
 @NgModule({

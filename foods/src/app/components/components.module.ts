@@ -3,22 +3,22 @@ import { CommonModule } from '@angular/common';
 import { TabsComponent } from './tabs/tabs.component';
 import { IonicModule } from '@ionic/angular';
 import { SelectorComponent } from './selector/selector.component';
-
-
+import { HeaderComponent } from './header/header.component';
 
 @NgModule({
   declarations: [
     TabsComponent,
-    SelectorComponent
+    SelectorComponent,
+    HeaderComponent
   ],
   imports: [
     CommonModule,
-    ComponentsModule,
     IonicModule,
   ],
   exports: [
     SelectorComponent,
     TabsComponent,
+    HeaderComponent
   ]
 })
 export class ComponentsModule { }
