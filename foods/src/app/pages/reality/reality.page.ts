@@ -27,7 +27,6 @@ export class RealityPage implements OnInit {
   ngOnInit() {
     this.changeColor("1bxOcmXisMlo2n7phTkJ4tzO7UBadOf8f");
     this.idAlimento = this.route.snapshot.params['id'];
-    console.log('IDALIMENTO', this.idAlimento);
     this.getAlimentos();
     // this.cargar();
   }
@@ -35,7 +34,6 @@ export class RealityPage implements OnInit {
   getAlimentos() {
     this.alimentoService.getOneAlimento(this.idAlimento)
       .subscribe(res => {
-        console.log(res);
         this.oneAlimento = res;
       });
   }
@@ -43,42 +41,31 @@ export class RealityPage implements OnInit {
   ionViewDidEnter() {
     var that = this;
     setTimeout(function () {
-        // Crea la capa del mapa
         that.checkIframeLoaded();
-    }, 10000);   
-
+    }, 10000);
   }
 
   changeColor(fileid) {
     this.googleS.get_objectfromDriven(fileid).subscribe( res =>{
-      console.log(res)
-      
       this.file = URL.createObjectURL(res);
     });
-
   }
 
 
   checkIframeLoaded() {
     // Get a handle to the iframe element
-    
     var iframe = document.getElementById('testo') as HTMLObjectElement;
     var iframeDoc = iframe.contentDocument || iframe.contentWindow.document;
-
     // Check if loading is complete
 
       if (iframeDoc.readyState == 'complete') {
         if (iframeDoc.getElementById('test')) {
-          console.log("ya existe")
           var st = 1;
         } else {
-          console.log("no existe")
           var st = 0;
         }
         //iframe.contentWindow.alert("Hello");
         iframe.contentWindow.onload = function () {
-          console.log("I am loaded");
-          
         };
         // The loading is complete, call the function we want executed once the iframe is loaded
         var text = iframeDoc.getElementById('nombre');
@@ -111,17 +98,6 @@ export class RealityPage implements OnInit {
         per.setAttribute('gltf-model', this.file);
       }
 
-      // If we are here, it is not loaded. Set things up so we check   the status again in 100 milliseconds
-      // window.setTimeout(this.checkIframeLoaded, 100);
-      
-    
   }
-
-  afterLoading() {
-    console.log("I am here");
-  }
-
-
-
 
 }

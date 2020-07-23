@@ -9,8 +9,8 @@ export class GoogleServiceobjectsService {
 
   constructor( private http: HttpClient) { }
 
- 
-  apikey = "Ingresar Key";
+  //AIzaSyAvxbpnF09Uk-mkzNDYLYz5411dWHdSE1o
+  apikey = "";
   URL_API = 'https://www.googleapis.com/drive/v3/files/';
 
   get_objectfromDriven(fileId): Observable<any> {
@@ -23,10 +23,7 @@ export class GoogleServiceobjectsService {
       'Response-Type':'blob'
     });
 
-    console.log("Tesssssss " + this.URL_API)
-
     // return this.http.get(this.URL_API + fileId+ "?alt=media&"+"key="+ this.apikey, {headers:headers});
     return this.http.get(this.URL_API + fileId+ "?alt=media&"+"key="+ this.apikey, {responseType: "blob"});
-    
   }
 }

@@ -8,13 +8,15 @@ import { IonicModule } from '@ionic/angular';
 import { RealityPageRoutingModule } from './reality-routing.module';
 
 import { RealityPage } from './reality.page';
+import { ComponentsModule } from '../../components/components.module';
 
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     IonicModule,
-    RealityPageRoutingModule
+    RealityPageRoutingModule,
+    ComponentsModule
   ],
   declarations: [RealityPage, PruebaPage]
 })

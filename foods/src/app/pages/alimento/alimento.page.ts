@@ -10,28 +10,21 @@ import { RespuestaAlimentos } from '../../interface/alimento';
 })
 export class AlimentoPage implements OnInit {
 
-  idAlimento;
-  alimento: RespuestaAlimentos [] = [];
   idSubcategoria;
   // alimento: RespuestaAlimentos[] = [];
   constructor(private route: ActivatedRoute,
               private alimentoService: AlimentoService) { }
 
-  getAlimentos() {
-    this.alimentoService.getAlimento(this.idAlimento)
-    .subscribe( resp => this.alimento = resp);
-  }
 
   ngOnInit() {
-    this.idAlimento = this.route.snapshot.params['id'];
+    this.idSubcategoria = this.route.snapshot.params['id'];
     this.getAlimentos();
   }
 
-  // getAlimentos() {
-  //   this.alimentoService.getAlimento(this.idSubcategoria)
-  //     .subscribe(res => {
-  //       console.log(res);
-  //       this.alimentoService.alimentos = res as RespuestaAlimentos[];
-  //     });
-  // }
+  getAlimentos() {
+    this.alimentoService.getAlimento(this.idSubcategoria)
+      .subscribe(res => {
+        this.alimentoService.alimentos = res as RespuestaAlimentos[];
+      });
+  }
 }
