@@ -1,49 +1,41 @@
-<ion-header class="ion-no-border">
-  <ion-toolbar  color="primary">
-    <ion-title class="ion-text-center">Categorias de Alimentos</ion-title>
-  </ion-toolbar>
-  <ion-toolbar  color="primary" >
-    <ion-searchbar aria-placeholder="Buscar categorias..."
-                   animated
-                   (ionChange)="buscarCategoria( $event )">
-    </ion-searchbar>
-  </ion-toolbar>
-</ion-header>
+<app-header></app-header>
+<ion-toolbar  color="primary">
+  <ion-title color="warning">
+    <h5>GRUPOS ALIMENTICIOS</h5>
+  </ion-title>
+  <ion-buttons slot="end" >
+    <ion-button>
+      <ion-icon name="person-circle-outline" color="warning"></ion-icon>
+    </ion-button>
+  </ion-buttons>
+</ion-toolbar>
+<ion-toolbar color="" class="ion-margin-top">
+  <ion-searchbar placeholder="Buscar..."
+                 animated
+                 mode="ios"
+                 (ionChange)="buscarCategoria( $event )" 
+                 color="medium">
+  </ion-searchbar>
+</ion-toolbar>
 
-<ion-content [fullscreen]="true">
-  <ion-grid fixed>
+<ion-content id="content">
+  <ion-grid >
     <ion-row> 
       <ion-col *ngFor="let categoria of categorias | buscador : textoBuscar" size="6">
-        <ion-card mode="ios" [routerLink]="['/subcategoria', categoria._id]" routerLinkActive="router-link-active">
-          <ion-item class="ion-text-center"> 
-            <ion-label>{{ categoria.name }}</ion-label>
-          </ion-item>
-          <ion-card-content>
+        <ion-card  mode="ios" [routerLink]="['/subcategoria', categoria._id]">
+          <ion-card-content >
             <ion-img src="{{categoria.imagen}}"></ion-img>
           </ion-card-content>
+          <ion-item class="ion-text-center" color="primary"> 
+            <ion-label mode="ios">{{ categoria.name }}</ion-label>
+          </ion-item>
         </ion-card>
       </ion-col>
     </ion-row>
   </ion-grid>
 </ion-content>
 <ion-footer>
-  <ion-tabs>
-    <ion-tab-bar slot="botton" color="primary">
-      <ion-tab-button tab="tab1">
-        <ion-icon name="home"></ion-icon>
-        <ion-icon>Home</ion-icon>
-      </ion-tab-button>  
-      <ion-tab-button tab="tab2">
-        <ion-icon name="qr-scanner"></ion-icon>
-        <ion-icon>scanner</ion-icon>
-      </ion-tab-button>
-      <ion-tab-button tab="tab3">
-        <ion-icon name="home"></ion-icon>
-        <ion-icon>Home</ion-icon>
-      </ion-tab-button>
-    </ion-tab-bar>  
-  </ion-tabs>  
-  
+  <ion-toolbar>
+    <app-tabs></app-tabs>
+  </ion-toolbar>
 </ion-footer>
-
-
