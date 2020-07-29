@@ -19,7 +19,7 @@ export class SubcategoriasPage implements OnInit {
     this.getSubCategorias();
   }
 
-  constructor(private route: ActivatedRoute,  
+  constructor(private route: ActivatedRoute, 
               private subcategoriaService: SubcategoriaService,
               private camera: Camera) {  }
 
