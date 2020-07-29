@@ -8,7 +8,7 @@ import { CategoriasPageRoutingModule } from './categorias-routing.module';
 
 import { CategoriasPage } from './categorias.page';
 import { PipesModule } from '../../pipes/pipes.module';
-import { ComponentsModule } from '../../components/components.module';
+import { ComponentsModule } from 'src/app/components/components.module';
 
 @NgModule({
   imports: [
@@ -17,7 +17,7 @@ import { ComponentsModule } from '../../components/components.module';
     IonicModule,
     CategoriasPageRoutingModule,
     PipesModule,
-    
+    ComponentsModule,
   ],
   declarations: [CategoriasPage]
 })

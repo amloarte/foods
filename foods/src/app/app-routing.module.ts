@@ -16,14 +16,6 @@ const routes: Routes = [
     loadChildren: () => import('./pages/subcategorias/subcategorias.module').then( m => m.SubcategoriasPageModule)
   },
   {
-    path: 'subcategorias',
-    loadChildren: () => import('./pages/subcategorias/subcategorias.module').then( m => m.SubcategoriasPageModule)
-  },
-  {
-    path: 'subcategorias',
-    loadChildren: () => import('./pages/subcategorias/subcategorias.module').then( m => m.SubcategoriasPageModule)
-  },
-  {
     path: 'subcategoria/:id',
     loadChildren: () => import('./pages/subcategorias/subcategorias.module').then( m => m.SubcategoriasPageModule)
   },
@@ -40,9 +32,21 @@ const routes: Routes = [
     loadChildren: () => import('./pages/alimento/alimento.module').then( m => m.AlimentoPageModule)
   },
   {
-    path: 'registo',
-    loadChildren: () => import('./pages/registo/registo.module').then( m => m.RegistoPageModule)
-  }
+    path: 'reality/:id',
+    loadChildren: () => import('./pages/reality/reality.module').then( m => m.RealityPageModule)
+  },
+  {
+    path: 'info',
+    loadChildren: () => import('./pages/info/info.module').then( m => m.InfoPageModule)
+  },
+  {
+    path: 'info/:id',
+    loadChildren: () => import('./pages/info/info.module').then( m => m.InfoPageModule)
+  },
+  {
+    path: 'inicio',
+    loadChildren: () => import('./pages/inicio/inicio.module').then( m => m.InicioPageModule)
+  },
 ];
 
 @NgModule({

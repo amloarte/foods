@@ -1,0 +1,90 @@
+<app-header></app-header>
+<ion-toolbar color="primary">
+  <ion-buttons slot="start">
+    <ion-back-button defaultHref="/"></ion-back-button>
+  </ion-buttons>
+  <ion-title >Detalle Alimento</ion-title>
+</ion-toolbar>
+
+<ion-content>
+  <ion-list *ngFor="let alimento of alimentoService.alimentos ">
+    <ion-item>
+      <ion-label>
+        <h3>Autor</h3>
+        <p>{{ alimento.autor}}</p>
+      </ion-label>
+    </ion-item>
+    <ion-item>
+      <ion-label >
+            <h3>Fecha</h3>
+            <p>{{ alimento.fecha}}</p>
+      </ion-label>
+    </ion-item>
+    <ion-item>
+      <ion-label >
+            <h3>Categoria</h3>
+            <p>{{ alimento.categoria}}</p>
+      </ion-label>
+    </ion-item>
+    <ion-item>
+      <ion-label >
+            <h3>Nombre Comun</h3>
+            <p>{{ alimento.nombre_comun}}</p>
+      </ion-label>
+    </ion-item>
+    <ion-item>
+      <ion-label >
+          <h3>Nombre Cientifico</h3>
+            <p>{{ alimento.nombre_cientifico}}</p>
+      </ion-label>
+    </ion-item>
+    <ion-item>
+      <ion-label >
+        <h3>Descripciòn </h3>
+            <p>{{ alimento.description}}</p>
+      </ion-label>
+    </ion-item>
+    <ion-item>
+      <ion-label >
+        <h3>Temporada</h3>
+            <p>{{ alimento.temporada}}</p>
+      </ion-label>
+    </ion-item>
+    <ion-item>
+      <ion-label >
+        <h3>Presentación</h3>
+            <p>{{ alimento.presentacion}}</p>
+      </ion-label>
+    </ion-item>
+    <ion-item>
+      <ion-label >
+        <h3>Unidades</h3>
+            <p>{{ alimento.unidades}}</p>
+      </ion-label>
+    </ion-item>
+    <ion-item>
+      <ion-label >
+        <h3>Kilocalorias</h3>
+            <p>{{ alimento.kilocalorias}}</p>
+      </ion-label>
+    </ion-item>
+    <ion-item>
+      <ion-label >
+        <h3>Glúcidos</h3>
+            <p>{{ alimento.glucidos}}</p>
+      </ion-label>
+    </ion-item>
+    <ion-item>
+      <ion-label >
+        <h3>Proteindas</h3>
+            <p>{{ alimento.proteinas  }}</p>
+      </ion-label>
+    </ion-item>
+  </ion-list>
+</ion-content>
+<ion-footer>
+  <ion-toolbar>
+    <app-tabs></app-tabs>
+  </ion-toolbar>
+</ion-footer>
+

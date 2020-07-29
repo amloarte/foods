@@ -13,16 +13,16 @@ export class SubcategoriasPage implements OnInit {
 
   subcategorias: RespuestaSubcategoria [] = [];
   idCategoria;
-  
+
   ngOnInit() {
     this.idCategoria = this.route.snapshot.params['id'];
     this.getSubCategorias();
   }
-  
-  constructor(private route: ActivatedRoute,  
+
+  constructor(private route: ActivatedRoute, 
               private subcategoriaService: SubcategoriaService,
               private camera: Camera) {  }
-  
+
   getSubCategorias() {
     this.subcategoriaService.getSubCategory(this.idCategoria)
     .subscribe( resp => this.subcategorias = resp);

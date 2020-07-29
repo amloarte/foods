@@ -1,0 +1,20 @@
+<!-- The core Firebase JS SDK is always required and must be listed first -->
+<script src="https://www.gstatic.com/firebasejs/7.16.1/firebase-app.js"></script>
+
+<!-- TODO: Add SDKs for Firebase products that you want to use
+     https://firebase.google.com/docs/web/setup#available-libraries -->
+
+<script>
+  // Your web app's Firebase configuration
+  var firebaseConfig = {
+    apiKey: "AIzaSyARW9AZSguiGhxtDwGlAZTrS9a6iBLFIMw",
+    authDomain: "foods3d.firebaseapp.com",
+    databaseURL: "https://foods3d.firebaseio.com",
+    projectId: "foods3d",
+    storageBucket: "foods3d.appspot.com",
+    messagingSenderId: "269296228234",
+    appId: "1:269296228234:web:7ecb4caf0da6f8a1999a73"
+  };
+  // Initialize Firebase
+  firebase.initializeApp(firebaseConfig);
+</script>

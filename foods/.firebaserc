@@ -1,0 +1,11 @@
+{
+  "targets": {
+    "foods3d": {
+      "hosting": {
+        "app": [
+          "foods3d"
+        ]
+      }
+    }
+  }
+}

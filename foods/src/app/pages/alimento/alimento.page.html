@@ -1,73 +1,49 @@
-<ion-header>
-  <ion-toolbar>
-    <ion-buttons slot="start">
+<app-header></app-header>
+<ion-toolbar color="primary">
+  <ion-buttons slot="start">
       <ion-back-button defaultHref="/"></ion-back-button>
-    </ion-buttons>
-    <ion-title >Detalles Alimentos</ion-title>
-  </ion-toolbar>
-</ion-header>
+  </ion-buttons>
+  <ion-title >
+    <h3> INFORMACIÓN ALIMENTOS </h3>
+  </ion-title>
+</ion-toolbar>  
 
 <ion-content>
-  <ion-list *ngFor="let foods of alimento ">
-    <ion-item>
-      <ion-label >
-            <h2>{{ foods.autor}}</h2>
-      </ion-label>
-    </ion-item>
-    <ion-item>
-      <ion-label >
-            <h2>{{ foods.fecha}}</h2>
-      </ion-label>
-    </ion-item>
-    <ion-item>
-      <ion-label >
-            <h2>{{ foods.categoria}}</h2>
-      </ion-label>
-    </ion-item>
-    <ion-item>
-      <ion-label >
-            <h2>{{ foods.nombre_comun}}</h2>
-      </ion-label>
-    </ion-item>
-    <ion-item>
-      <ion-label >
-            <h2>{{ foods.nombre_cientifico}}</h2>
-      </ion-label>
-    </ion-item>
-    <ion-item>
-      <ion-label >
-            <h2>{{ foods.description}}</h2>
-      </ion-label>
-    </ion-item>
-    <ion-item>
-      <ion-label >
-            <h2>{{ foods.temporada}}</h2>
-      </ion-label>
-    </ion-item>
-    <ion-item>
-      <ion-label >
-            <h2>{{ foods.presentacion}}</h2>
-      </ion-label>
-    </ion-item>
-    <ion-item>
-      <ion-label >
-            <h2>{{ foods.unidades}}</h2>
-      </ion-label>
-    </ion-item>
-    <ion-item>
-      <ion-label >
-            <h2>{{ foods.kilocalorias}}</h2>
-      </ion-label>
-    </ion-item>
-    <ion-item>
-      <ion-label >
-            <h2>{{ foods.glucidos}}</h2>
-      </ion-label>
-    </ion-item>
-    <ion-item>
-      <ion-label >
-            <h2>{{ foods.proteinas  }}</h2>
-      </ion-label>
-    </ion-item>
-  </ion-list>
+  <ion-content fullscreen>
+      <ion-card *ngFor="let foods of alimentoService.alimentos ">
+          <ion-img src="{{foods.imagen}}" [routerLink]="['/reality', foods._id]"></ion-img>
+          <ion-card-header>
+              <ion-card-title>Nombre: {{ foods.nombre_comun }}</ion-card-title>
+              <ion-card-subtitle>Descripción: {{ foods.description }}</ion-card-subtitle>
+          </ion-card-header>
+          <ion-card-content>
+              <ion-list>
+                  <ion-item>
+                      <ion-label>
+                          <h3>Autor</h3>
+                          <p>{{ foods.autor}}</p>
+                      </ion-label>
+                  </ion-item>
+                  <ion-item>
+                      <ion-label>
+                          <h3>Fecha</h3>
+                          <p>{{ foods.fecha}}</p>
+                      </ion-label>
+                  </ion-item>
+                  <ion-item>
+                      <ion-label>
+                          <h3>Categoria</h3>
+                          <p>{{ foods.categoria}}</p>
+                      </ion-label>
+                  </ion-item>
+              </ion-list>
+              <ion-button color="primary" [routerLink]="['/info', foods._id]">Información</ion-button>
+          </ion-card-content>
+      </ion-card>
+  </ion-content>
 </ion-content>
+<ion-footer>
+  <ion-toolbar>
+    <app-tabs></app-tabs>
+  </ion-toolbar>
+</ion-footer>
