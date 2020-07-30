@@ -24,7 +24,7 @@
       <ion-col *ngFor="let categoria of categorias | buscador : textoBuscar" size="6">
         <ion-card  mode="ios" [routerLink]="['/subcategoria', categoria._id]">
           <ion-card-content >
-            <ion-img src="{{categoria.imagen}}"></ion-img>
+            <ion-img style="width: 100px; height: 100px;" src="{{categoria.imagen}}"></ion-img>
           </ion-card-content>
           <ion-item class="ion-text-center" color="primary"> 
             <ion-label mode="ios">{{ categoria.name }}</ion-label>
@@ -34,8 +34,3 @@
     </ion-row>
   </ion-grid>
 </ion-content>
-<ion-footer>
-  <ion-toolbar>
-    <app-tabs></app-tabs>
-  </ion-toolbar>
-</ion-footer>

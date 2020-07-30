@@ -36,6 +36,5 @@ export class SubcategoriasPage implements OnInit {
       mediaType: this.camera.MediaType.PICTURE
     }
   }
- 
 
 }
