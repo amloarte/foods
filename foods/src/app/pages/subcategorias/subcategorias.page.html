@@ -1,29 +1,29 @@
 <app-header></app-header>
 <ion-toolbar color="primary">
-  <ion-buttons slot="start">
-    <ion-back-button defaultHref="/"></ion-back-button>
-  </ion-buttons>
-  <ion-title>Alimentos</ion-title>
+    <ion-buttons slot="start">
+        <ion-back-button defaultHref="/"></ion-back-button>
+    </ion-buttons>
+    <ion-title>Alimentos</ion-title>
 </ion-toolbar>
 <ion-content [fullscreen]="true" color="ion-color-medium-tint">
-  <ion-grid fixed>
-    <ion-row>
-      <ion-col *ngFor="let subcategoria of subcategorias " size="6">
-        <ion-card mode="ios" [routerLink]="['/alimento', subcategoria._id]" routerLinkActive="router-link-active">
-          <ion-card-content>
-            <ion-img src="{{ subcategoria.imagen }}"></ion-img>
-          </ion-card-content>
-          <ion-item color="primary" class="ion-text-center">
-            <ion-label>{{ subcategoria.name }}</ion-label>
-          </ion-item>
-        </ion-card>
-      </ion-col>
-    </ion-row>
-  </ion-grid>
+    <ion-grid fixed>
+        <ion-row>
+            <ion-col *ngFor="let subcategoria of subcategorias " size="6">
+                <ion-card mode="ios" [routerLink]="['/alimento', subcategoria._id]" routerLinkActive="router-link-active">
+                    <ion-card-content>
+                        <ion-img src="{{ subcategoria.imagen }}"></ion-img>
+                    </ion-card-content>
+                    <ion-item color="primary" class="ion-text-center">
+                        <ion-label id="subcategoria">{{ subcategoria.name }}</ion-label>
+                    </ion-item>
+                </ion-card>
+            </ion-col>
+        </ion-row>
+    </ion-grid>
 </ion-content>
 
 <ion-footer>
-  <ion-toolbar>
-    <app-tabs></app-tabs>
-  </ion-toolbar>
+    <ion-toolbar>
+        <app-tabs></app-tabs>
+    </ion-toolbar>
 </ion-footer>

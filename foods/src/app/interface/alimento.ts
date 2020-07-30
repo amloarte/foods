@@ -18,6 +18,7 @@ export interface RespuestaAlimentos {
   glucidos: string;
   proteinas: string;
   lipidos: string;
+  modelo3d: string;
   subcategoria: string;
   imagen: string;
   __v: number;

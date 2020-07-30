@@ -1,4 +1,3 @@
-import { PruebaPage } from './../prueba/prueba.page';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
@@ -18,6 +17,6 @@ import { ComponentsModule } from '../../components/components.module';
     RealityPageRoutingModule,
     ComponentsModule
   ],
-  declarations: [RealityPage, PruebaPage]
+  declarations: [RealityPage]
 })
 export class RealityPageModule {}

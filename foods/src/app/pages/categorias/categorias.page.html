@@ -1,41 +1,37 @@
 <app-header></app-header>
-<ion-toolbar  color="primary">
-  <ion-title color="warning">
-    <h5>GRUPOS ALIMENTICIOS</h5>
-  </ion-title>
-  <ion-buttons slot="end" >
-    <ion-button>
-      <ion-icon name="person-circle-outline" color="warning"></ion-icon>
-    </ion-button>
-  </ion-buttons>
+<ion-toolbar color="primary">
+    <ion-title color="warning">
+        <h5>GRUPOS ALIMENTICIOS</h5>
+    </ion-title>
+    <ion-buttons slot="end">
+        <ion-button>
+            <ion-icon name="person-circle-outline" color="warning"></ion-icon>
+        </ion-button>
+    </ion-buttons>
 </ion-toolbar>
 <ion-toolbar color="" class="ion-margin-top">
-  <ion-searchbar placeholder="Buscar..."
-                 animated
-                 mode="ios"
-                 (ionChange)="buscarCategoria( $event )" 
-                 color="medium">
-  </ion-searchbar>
+    <ion-searchbar placeholder="Buscar..." animated mode="ios" (ionChange)="buscarCategoria( $event )" color="medium">
+    </ion-searchbar>
 </ion-toolbar>
 
 <ion-content id="content">
-  <ion-grid >
-    <ion-row> 
-      <ion-col *ngFor="let categoria of categorias | buscador : textoBuscar" size="6">
-        <ion-card  mode="ios" [routerLink]="['/subcategoria', categoria._id]">
-          <ion-card-content >
-            <ion-img src="{{categoria.imagen}}"></ion-img>
-          </ion-card-content>
-          <ion-item class="ion-text-center" color="primary"> 
-            <ion-label mode="ios">{{ categoria.name }}</ion-label>
-          </ion-item>
-        </ion-card>
-      </ion-col>
-    </ion-row>
-  </ion-grid>
+    <ion-grid>
+        <ion-row>
+            <ion-col *ngFor="let categoria of categorias | buscador : textoBuscar" size="6">
+                <ion-card mode="ios" [routerLink]="['/subcategoria', categoria._id]">
+                    <ion-card-content>
+                        <ion-img src="{{categoria.imagen}}"></ion-img>
+                    </ion-card-content>
+                    <ion-item class="ion-text-center" color="primary">
+                        <ion-label id="categoria" mode="ios">{{ categoria.name }}</ion-label>
+                    </ion-item>
+                </ion-card>
+            </ion-col>
+        </ion-row>
+    </ion-grid>
 </ion-content>
 <ion-footer>
-  <ion-toolbar>
-    <app-tabs></app-tabs>
-  </ion-toolbar>
+    <ion-toolbar>
+        <app-tabs></app-tabs>
+    </ion-toolbar>
 </ion-footer>

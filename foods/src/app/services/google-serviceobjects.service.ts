@@ -10,7 +10,7 @@ export class GoogleServiceobjectsService {
   constructor( private http: HttpClient) { }
 
   //AIzaSyAvxbpnF09Uk-mkzNDYLYz5411dWHdSE1o
-  apikey = "";
+  apikey = "AIzaSyAvxbpnF09Uk-mkzNDYLYz5411dWHdSE1o";
   URL_API = 'https://www.googleapis.com/drive/v3/files/';
 
   get_objectfromDriven(fileId): Observable<any> {
@@ -25,5 +25,13 @@ export class GoogleServiceobjectsService {
 
     // return this.http.get(this.URL_API + fileId+ "?alt=media&"+"key="+ this.apikey, {headers:headers});
     return this.http.get(this.URL_API + fileId+ "?alt=media&"+"key="+ this.apikey, {responseType: "blob"});
+  }
+
+  getJson(fileId){
+    const param= new HttpParams();
+    param.set('key', this.apikey);
+    param.set('Content-Type', 'application/json');
+    // return this.http.get(this.URL_API + fileId+ "?alt=media&"+"key="+ this.apikey, {headers:headers});
+    return this.http.get(this.URL_API + fileId + "?alt=media&"+"key="+ this.apikey); 
   }
 }
