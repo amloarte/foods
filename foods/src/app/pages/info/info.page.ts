@@ -11,11 +11,11 @@ import { AlimentoService } from '../../services/alimento.service';
 
 export class InfoPage implements OnInit {
 
-  idSubcategoria;
-  alimentos: RespuestaAlimentos [] = [];
+  idAlimento;
+  alimentos;
 
   ngOnInit() {
-    this.idSubcategoria = this.route.snapshot.params['id'];
+    this.idAlimento = this.route.snapshot.params['id'];
     this.getAlimentos();
   }
 
@@ -24,9 +24,9 @@ export class InfoPage implements OnInit {
 
 
   getAlimentos() {
-    this.alimentoService.getOneAlimento(this.idSubcategoria)
+    this.alimentoService.getOneAlimento(this.idAlimento)
       .subscribe(res => {
-        console.log(res);
+        this.alimentos = res;
       });
   }
 

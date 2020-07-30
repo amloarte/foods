@@ -1,21 +1,17 @@
 <app-header></app-header>
-<ion-toolbar  color="primary">
-  <ion-title color="warning">
-    <h5>GRUPOS ALIMENTICIOS</h5>
-  </ion-title>
-  <ion-buttons slot="end" >
-    <ion-button>
-      <ion-icon name="person-circle-outline" color="warning"></ion-icon>
-    </ion-button>
-  </ion-buttons>
+<ion-toolbar color="primary">
+    <ion-title color="warning">
+        <h5>GRUPOS ALIMENTICIOS</h5>
+    </ion-title>
+    <ion-buttons slot="end">
+        <ion-button>
+            <ion-icon name="person-circle-outline" color="warning"></ion-icon>
+        </ion-button>
+    </ion-buttons>
 </ion-toolbar>
 <ion-toolbar color="" class="ion-margin-top">
-  <ion-searchbar placeholder="Buscar..."
-                 animated
-                 mode="ios"
-                 (ionChange)="buscarCategoria( $event )" 
-                 color="medium">
-  </ion-searchbar>
+    <ion-searchbar placeholder="Buscar..." animated mode="ios" (ionChange)="buscarCategoria( $event )" color="medium">
+    </ion-searchbar>
 </ion-toolbar>
 
 <ion-content id="content">
