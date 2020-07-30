@@ -4,14 +4,14 @@
         <ion-back-button defaultHref="/"></ion-back-button>
     </ion-buttons>
     <ion-title>
-        <h3> INFORMACIÓN ALIMENTOS </h3>
+        <h3 color="warning"> Información de Alimento </h3>
     </ion-title>
 </ion-toolbar>
 
 <ion-content>
     <ion-content fullscreen>
         <ion-card *ngFor="let foods of alimentoService.alimentos ">
-            <ion-img src="{{foods.imagen}}" [routerLink]="['/reality', foods._id]"></ion-img>
+            <ion-img src="{{foods.imagen}}" [routerLink]="['/reality', foods._id]" ></ion-img>
             <ion-card-header>
                 <ion-card-title>Nombre: {{ foods.nombre_comun }}</ion-card-title>
                 <ion-card-subtitle>Descripción: {{ foods.description }}</ion-card-subtitle>
